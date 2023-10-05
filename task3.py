@@ -36,7 +36,7 @@ class NPC:
             if random.randint(1,100) < 75:
                 self.copper = random.randint(4,20)
 
-        self.wealth = (self.gold*100)+(self.silver*10)+self.copper
+        self.wealth = ( (self.gold*100)+(self.silver*10)+self.copper )
 
         return
 
@@ -46,7 +46,7 @@ lvl2 = 0
 lvl3 = 0
 lvl4 = 0
 
-for i in range(0,1000):
+for i in range(0,100):
     npcs.append(NPC(i))
     npchp.append(npcs[i].hp)
     npcwealth.append(npcs[i].wealth)
@@ -65,28 +65,25 @@ for i in range(0,1000):
         lvl4+=1
 
 
-
-
-
-
-
-def mean(npcs):
+def mean(dataList):
     total = 0
     
-    for i in npcs:
-        print(i)
+    for i in dataList:
+        #print(i)
         total += i
 
-    final = total/len(npcs)
+    final = total/len(dataList)
     return final
 
-def sd(npcs):
-    average = mean(npcs)
+def sd(dL):
+    #print(dL)
+    average = mean(dL)
+    print(average)
     difference = []
     squares = []
     num = 0
 
-    for i in npcs:
+    for i in dL:
         difference.append(i-average)
         
     for i in difference:
@@ -95,9 +92,10 @@ def sd(npcs):
     for i in squares:
         num += i
 
-    return round(((num/len(npcs))**0.5),2)
+    return round(((num/len(dL))**0.5),2)
 
 
 
 print(f"The mean is of the hp of the npcs is {mean(npchp)} and the standard deviation is {sd(npchp)}")
 print(f"The mean is of the wealth of the npcs is {mean(npcwealth)} and the standard deviation is {sd(npcwealth)}")
+print(f"There are {lvl1} level 1's, {lvl2} level 2's, {lvl3} level 3's, {lvl4} level 4's")
