@@ -69,16 +69,13 @@ def mean(dataList):
     total = 0
     
     for i in dataList:
-        #print(i)
         total += i
 
     final = total/len(dataList)
     return final
 
 def sd(dL):
-    #print(dL)
     average = mean(dL)
-    print(average)
     difference = []
     squares = []
     num = 0
